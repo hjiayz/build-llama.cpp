@@ -96,7 +96,7 @@ jobs:
         run: |
           cmake -S . -B build ${{ matrix.defines }}
           cmake --build build --config Release -j ${env:NUMBER_OF_PROCESSORS}
-
+          Get-ChildItem -Path $env:RUNNER_TEMP -Filter "*.lib" -Recurse | Copy-Item -Destination ./build/bin/Release/
       - name: Add libopenblas.dll
         id: add_libopenblas_dll
         if: ${{ matrix.build == 'openblas-x64' }}
