@@ -97,6 +97,7 @@ jobs:
           cmake --build build --config Release -j ${env:NUMBER_OF_PROCESSORS}
           mkdir lib
           Get-ChildItem -Path ./build -Filter "*.lib" -Recurse | Copy-Item -Destination ./lib/
+          Get-ChildItem -Path ./build -Filter "*.a" -Recurse | Copy-Item -Destination ./lib/
           Copy-Item -Path ./lib -Destination ./build/bin/Release/
           
       - name: Add libopenblas.dll
