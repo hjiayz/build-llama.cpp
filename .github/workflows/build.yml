@@ -98,7 +98,7 @@ jobs:
           mkdir lib
           Get-ChildItem -Path ./build -Filter "*.lib" -Recurse | Copy-Item -Destination ./lib
           Get-ChildItem -Path ./build -Filter "*.a" -Recurse | Copy-Item -Destination ./lib
-          Copy-Item -Path ./lib -Destination ./build/bin/Release/
+          Copy-Item -Path ./lib -Destination ./build/bin/Release/ -Recurse
           ls ./build/bin/Release/lib
           
       - name: Add libopenblas.dll
