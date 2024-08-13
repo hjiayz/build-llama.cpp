@@ -96,9 +96,10 @@ jobs:
           cmake -S . -B build ${{ matrix.defines }}
           cmake --build build --config Release -j ${env:NUMBER_OF_PROCESSORS}
           mkdir lib
-          Get-ChildItem -Path ./build -Filter "*.lib" -Recurse | Copy-Item -Destination ./lib/
-          Get-ChildItem -Path ./build -Filter "*.a" -Recurse | Copy-Item -Destination ./lib/
+          Get-ChildItem -Path ./build -Filter "*.lib" -Recurse | Copy-Item -Destination ./lib
+          Get-ChildItem -Path ./build -Filter "*.a" -Recurse | Copy-Item -Destination ./lib
           Copy-Item -Path ./lib -Destination ./build/bin/Release/
+          ls ./build/bin/Release/lib
           
       - name: Add libopenblas.dll
         id: add_libopenblas_dll
