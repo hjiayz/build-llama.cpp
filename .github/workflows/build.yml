@@ -51,9 +51,10 @@ jobs:
     steps:
       - name: Clone
         id: checkout
-        run: |
-          git clone https://github.com/ggerganov/llama.cpp ""
-
+        uses: actions/checkout@v4
+        with:
+          repository: 'https://github.com/ggerganov/llama.cpp'
+          fetch-depth: 0
       - name: Clone Kompute submodule
         id: clone_kompute
         if: ${{ matrix.build == 'kompute-x64' }}
