@@ -52,7 +52,7 @@ jobs:
       - name: Clone
         id: checkout
         run: |
-          git clone https://github.com/ggerganov/llama.cpp
+          git clone https://github.com/ggerganov/llama.cpp ""
 
       - name: Clone Kompute submodule
         id: clone_kompute
